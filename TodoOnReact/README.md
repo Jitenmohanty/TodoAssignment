@@ -10,3 +10,13 @@ Currently, two official plugins are available:
 -- Here You Can All CURD Operation OnTodo
 --- You don't Need to on your Internet to store your todo It simply store on Local storage..
 -- You can clear Your All todo...
+
+
+--Here i am using tailwind css for Styling....(
+  Go to taiwind css framework Guide....
+
+)
+
+--For Overcome the Problem of props passing i am using Context Api....Hook
+
+--For is to use IDE Visual studio Code....
