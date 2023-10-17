@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#box{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    background-color: rgb(125, 209, 30);
+    overflow: hidden;
+}
+#box img{
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+    transition: 0.8s ease ;
+}
+#box:hover img{
+    scale: 1.2;
+}
+
+button{
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 3px;
+    padding: 12px 20px;
+    margin: 50px;
+    border: none;
+    color: #fff;
+    background-color: rgb(9, 126, 124);
+   transition:all 0.5s ease;
+    }
+
+    button:hover{
+        box-shadow: 5px 5px 0px black;
+    }
+
+    h1{
+        background-image: url(https://plus.unsplash.com/premium_photo-1675813861705-ad5679e4f2d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1N3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60);
+        background-size: cover;
+        background-position: center;
+        background-clip: text;
+        -webkit-background-clip:text;
+        color: transparent;
+    }
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./index.css"> -->
+  </head>
+  <style></style>
+  <body>
+    <div
+      id="box"
+      style="
+        height: 50vh;
+        width: 30vw;
+        background-color: rgb(10, 86, 86);
+        color: blanchedalmond;
+      "
+    >
+      <!-- <ul id="images">
+        <h1>Hii</h1>
+        <li class="img">
+          <img
+            src="https://images.unsplash.com/photo-1695338035806-af02c934af38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=600&q=60"
+          />
+        </li>
+        <li class="img">
+          <img
+            src="https://images.unsplash.com/photo-1695338035806-af02c934af38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=600&q=60"
+          />
+        </li>
+        <li class="img">
+          <img
+            src="https://images.unsplash.com/photo-1695338035806-af02c934af38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=600&q=60"
+          />
+        </li>
+        <li class="img">
+          <img
+            src="https://images.unsplash.com/photo-1695338035806-af02c934af38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=600&q=60"
+          />
+        </li>
+      </ul> -->
+    </div>
+    <button
+      id="btn"
+      style="
+        background-color: blueviolet;
+        padding: 10px;
+        color: blanchedalmond;
+        border-radius: 5px;
+        margin: 10px;
+        margin-left: 120px;
+        font-weight: 900;
+      "
+    >
+      Fetch
+    </button>
+    <!-- <button>Click Me</button>
+    <h1>JITEN MOHANTY</h1> -->
+  </body>
+  <script>
+    // document.getElementById("images").addEventListener(
+    //   "click",
+    //   (e) => {
+    //     if (e.target.tagName === "IMG") {
+    //       let removeItem = e.target.parentNode;
+    //       // console.log(e.target.parentNode);
+    //       // removeItem.remove();
+    //     }
+    //     // console.log(e.target.parentNode);
+    //     // console.log(e.target.tagName);
+    //     // console.log(e.timeStamp);
+    //     // console.log(e.target)
+    //     // console.log(e.currentTarget)
+    //     // console.log(e.srcElement)
+    //     console.log(e.clientX)
+    //     console.log(e.clientY)
+    //     console.log(e.screenX)
+    //     console.log(e.screenY)
+    //   },
+    //   true
+    // );
+
+    // XMLRequest....
+    const requestUrl = "https://api.github.com/users/jitenmohanty";
+    const xhr = new XMLHttpRequest();
+
+    document.getElementById("btn").addEventListener("click", () => {
+      xhr.open("GET", requestUrl);
+      xhr.onreadystatechange = function () {
+        // console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+          const data = JSON.parse(this.responseText);
+          // console.log(data.name)
+          // console.log(data.avatar_url)
+          document.getElementById(
+            "box"
+          ).innerHTML = `<img  src=${data.avatar_url} alt='jitu' />
+          <h2>${data.name}</h2>
+          `;
+        }
+      };
+      xhr.send();
+    });
+  </script>
+</html>
