@@ -49,7 +49,7 @@ const ImgSlider = () => {
 };
 const Carousel = styled(Slider)`
   margin-top: 20px;
-
+  overflow-x:hidden;
   & > button {
     opacity: 0;
     height: 100%;
@@ -90,7 +90,7 @@ const Wrap = styled.div`
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-
+  overflow-x:hidden;
   a {
     border-radius: 4px;
     box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
@@ -105,7 +105,7 @@ const Wrap = styled.div`
       height: 30vh;
       object-fit:cover
     }
-    
+
 
     &:hover {
       padding: 0;
