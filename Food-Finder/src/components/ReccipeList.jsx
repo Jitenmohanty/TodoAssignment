@@ -18,6 +18,8 @@ function RecipeLists(props) {
     });
   };
 
+  const handleFavoriteRecipe = () => {};
+
   const handleRecipieListPage = (index) => {
     setRecipeList(true);
 
@@ -35,8 +37,8 @@ function RecipeLists(props) {
           return null; // Return null if no match is found
         }
       }
-      extractIdFromUrl(apiArray[index])
-      console.log(apiId)
+      extractIdFromUrl(apiArray[index]);
+      console.log(apiId);
       clearTimeout();
       // console.log(apiArray[index]);
       // console.log(apiArray);
@@ -54,6 +56,14 @@ function RecipeLists(props) {
     <div className="container">
       <div className="heading-line">
         <strong>Search Recipes</strong>
+        <div className="tablist">
+          <span
+            onClick={handleFavoriteRecipe}
+            style={{ fontWeight: "bolder", fontSize: "30px" }}
+          >
+            Favoruite List
+          </span>
+        </div>
         <div className="input-wrapper">
           <input
             onChange={(e) => setSearchedTearm(e.target.value)}
@@ -74,15 +84,23 @@ function RecipeLists(props) {
             <div key={index} className="flexItem">
               <div className="img-wrapper">
                 <img src={item.recipe.image} alt={item.recipe.label} />
-                {apiArray.push(item._links.self.href)}
               </div>
+              <p style={{ display: "none" }}>
+                {apiArray.push(item._links.self.href)}
+              </p>
               <p onClick={() => handleRecipieListPage(index)}>
                 {item.recipe.label}
               </p>
             </div>
           ))}
       </div>
-      {resipeList && <RecipeListItem apiId={apiId} setRecipeList={setRecipeList} setApiId={setApiId} />}
+      {resipeList && (
+        <RecipeListItem
+          apiId={apiId}
+          setRecipeList={setRecipeList}
+          setApiId={setApiId}
+        />
+      )}
     </div>
   );
 }

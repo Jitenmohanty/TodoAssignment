@@ -91,7 +91,6 @@ p {
   color: #6fcb9f;
   text-align: center;
   font-size: 45px;
-  margin-bottom: 70px;
 }
 
 .tabs {
@@ -418,16 +417,42 @@ p {
 }
 
 .gradient-text {
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(231,11,12,1) 35%, rgba(85,191,238,1) 78%, rgba(0,212,255,1) 100%);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(231, 11, 12, 1) 35%, rgba(85, 191, 238, 1) 78%, rgba(0, 212, 255, 1) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
+
 .gradient-ingredient {
-  background: rgb(40,40,40);
-  background: linear-gradient(137deg, rgba(40,40,40,1) 0%, rgba(40,40,40,1) 96%);
+  background: rgb(40, 40, 40);
+  background: linear-gradient(137deg, rgba(40, 40, 40, 1) 0%, rgba(40, 40, 40, 1) 96%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn {
+  // position: absolute;
+  top: 10px;
+  /* Adjust the top position as needed */
+  right: 0;
+  /* Set to 0 to position the button at the top right corner */
+  background-color: #6839f4;
+  /* Example background color */
+  color: white;
+  /* Example text color */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-bottom: 3px;
 }

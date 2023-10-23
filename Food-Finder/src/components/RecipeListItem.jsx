@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { GiCheckMark } from "react-icons/gi";
 import { fetchDataFromTab } from "../service/Api";
 
 function RecipeListItem(props) {
   const [tabData, setTabData] = useState(null);
   const [loader, setLoader] = useState(true);
-
+  const [fav, setFav] = useState(false);
+  const [addId, setAddId] = useState(JSON.parse(localStorage.getItem("Recipe")) || []);
   useEffect(() => {
     fetchDataFromTab(props.apiId)
       .then((response) => {
@@ -19,6 +20,26 @@ function RecipeListItem(props) {
       });
   }, [props.apiId]);
 
+  useEffect(() => {
+    const apiId = JSON.parse(localStorage.getItem("Recipe"));
+
+    if (apiId && apiId.includes(props.apiId)) {
+      setFav(true);
+    }
+   
+  }, [props.apiId]);
+
+  useEffect(() => {
+    localStorage.setItem("Recipe", JSON.stringify(addId));
+  }, [addId]);
+
+  const handleClick = useCallback(() => {
+    if (!addId.includes(props.apiId)) {
+      setAddId((prevAddId) => [...prevAddId, props.apiId]);
+      setFav(true);
+    }
+  }, [addId, props.apiId]);
+
   if (loader) {
     return (
       <div className="container">
@@ -30,13 +51,19 @@ function RecipeListItem(props) {
   }
 
   if (!tabData || !tabData.recipe) {
-    return <h2>Container Is Empty</h2>; 
+    return <h2>Container Is Empty</h2>;
   }
 
   return (
     <div className="container">
-      <h1 className="recipeHeading">What would you like to have!</h1>
+      <h1 className="recipeHeading">Best of Luck for recipe </h1>
+      <div className="button-container">
+        <button disabled={fav} onClick={handleClick} className="btn">
+          Add To Fav
+        </button>
+      </div>
       <div className="recipe_banner">
+      
         <div className="left-col">
           <span className="badge">
             {tabData.recipe.cuisineType[0]?.toUpperCase()}
@@ -55,6 +82,7 @@ function RecipeListItem(props) {
                   &nbsp;<span>{list}</span>
                 </li>
               ))}
+              
             </ul>
           </div>
         </div>
