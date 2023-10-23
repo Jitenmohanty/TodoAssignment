@@ -60,9 +60,9 @@ function DefaultTab(props) {
             {tabData !== '' && tabData.recipe &&  <>
                 <div className="left-col">
                     <span className='badge'>{tabData.recipe?.cuisineType[0].toUpperCase()}</span>
-                    <h1>{tabData.recipe.label}</h1>
+                    <h1 className='gradient-text'>{tabData.recipe.label}</h1>
                     <p><strong>Recipe by:</strong><small>{tabData.recipe.source}</small></p>
-                    <h3>Ingredients</h3>
+                    <h3 className='gradient-ingredient'>Ingredients</h3>
                     <div className='ingredients'>
                         <ul>
                             {tabData.recipe.ingredientLines.map((list,index)=> 

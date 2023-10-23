@@ -165,9 +165,11 @@ p {
 }
 
 .recipe_banner {
-  background-color: #29336b;
+  // background-color: #29336b;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(190, 32, 224, 1) 100%);
   padding: 20px;
-  color: #fff;
+  color: #0c0b0e;
   display: flex;
   margin-bottom: 70px;
   flex-direction: column-reverse;
@@ -366,12 +368,16 @@ p {
       font-weight: bolder;
       font-size: 17px;
       height: 14%;
+      cursor: pointer;
+
       @include medium {
         height: 11%;
       }
+
       @include small {
         height: 11%;
       }
+
       @include default {
         height: 18%;
       }
@@ -409,4 +415,19 @@ p {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.gradient-text {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(231,11,12,1) 35%, rgba(85,191,238,1) 78%, rgba(0,212,255,1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.gradient-ingredient {
+  background: rgb(40,40,40);
+  background: linear-gradient(137deg, rgba(40,40,40,1) 0%, rgba(40,40,40,1) 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

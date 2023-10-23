@@ -112,21 +112,21 @@ const Wrap = styled.div`
       object-fit: cover;
     }
     span {
-      color: rgb(34,193,195);
-color: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+      color: rgb(91, 198, 200);
+     
       font-weight: bold;
       z-index: 10;
       position: absolute;
-      top: 50%; 
-      left: 50%; 
+      top: 50%;
+      left: 50%;
       transform: translate(-80%, -50%);
       font-size: 35px;
       @media (max-width: 768px) {
-        font-size:30px
-  }
+        font-size: 30px;
+      }
       @media (max-width: 558px) {
-        font-size:20px
-  }
+        font-size: 20px;
+      }
     }
 
     &:hover {
