@@ -19,29 +19,34 @@ const ImgSlider = () => {
       <Wrap>
         <a>
           <img src="/images/pizza.jpg" alt="" />
+          <span>Life is better with a slice of pizza in hand!</span>
         </a>
       </Wrap>
 
       <Wrap>
         <a>
           <img src="/images/icecream.jpg" alt="" />
+          <span>Ice cream: Where friends and flavors meet!</span>
         </a>
       </Wrap>
 
       <Wrap>
         <a>
           <img src="/images/biriyani.jpg" alt="" />
+          <span>Biriyani lovers, where every grain is a burst of flavor!</span>
         </a>
       </Wrap>
 
       <Wrap>
         <a>
           <img src="/images/burger2.jpg" alt="" />
+          <span>Bite into happiness, one burger at a time!</span>
         </a>
       </Wrap>
       <Wrap>
         <a>
           <img src="/images/mutton.jpg" alt="" />
+          <span>Mutton enthusiasts, savoring the flavor with every bite!</span>
         </a>
       </Wrap>
     </Carousel>
@@ -49,7 +54,8 @@ const ImgSlider = () => {
 };
 const Carousel = styled(Slider)`
   margin-top: 20px;
-  overflow-x:hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   & > button {
     opacity: 0;
     height: 100%;
@@ -90,7 +96,7 @@ const Wrap = styled.div`
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  overflow-x:hidden;
+  overflow-x: hidden;
   a {
     border-radius: 4px;
     box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
@@ -103,9 +109,25 @@ const Wrap = styled.div`
     img {
       width: 100vw;
       height: 30vh;
-      object-fit:cover
+      object-fit: cover;
     }
-
+    span {
+      color: rgb(34,193,195);
+color: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+      font-weight: bold;
+      z-index: 10;
+      position: absolute;
+      top: 50%; 
+      left: 50%; 
+      transform: translate(-80%, -50%);
+      font-size: 35px;
+      @media (max-width: 768px) {
+        font-size:30px
+  }
+      @media (max-width: 558px) {
+        font-size:20px
+  }
+    }
 
     &:hover {
       padding: 0;
