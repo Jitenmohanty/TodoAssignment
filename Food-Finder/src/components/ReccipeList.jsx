@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { fetchData } from "../service/Api";
 import RecipeListItem from "./RecipeListItem";
@@ -9,6 +9,8 @@ function RecipeLists(props) {
   const [data, setData] = useState("");
   const [resipeList, setRecipeList] = useState(false);
   const [apiId, setApiId] = useState("");
+  const [favList, setFavList] = useState([]);
+  const [fshow, setfshow] = useState(false);
   const apiArray = [];
 
   const searchrecipe = (searchQuery) => {
@@ -17,8 +19,16 @@ function RecipeLists(props) {
       props.setLoader(false);
     });
   };
+  useEffect(() => {
+    const list = JSON.parse(localStorage.getItem("Recipe"));
 
-  const handleFavoriteRecipe = () => {};
+    if (list && list.length > 0) {
+      setFavList(list);
+    }
+  }, []);
+  const handleFavoriteRecipe = useCallback(() => {
+    setfshow(true);
+  });
 
   const handleRecipieListPage = (index) => {
     setRecipeList(true);
@@ -57,12 +67,14 @@ function RecipeLists(props) {
       <div className="heading-line">
         <strong>Search Recipes</strong>
         <div className="tablist">
-          <span
+          <button
+            className="btn"
             onClick={handleFavoriteRecipe}
-            style={{ fontWeight: "bolder", fontSize: "30px" }}
+            style={{ fontWeight: "bolder", fontSize: "20px", color: "Black" }}
           >
             Favoruite List
-          </span>
+          </button>
+          {fshow && <RecipeListItem />}
         </div>
         <div className="input-wrapper">
           <input
