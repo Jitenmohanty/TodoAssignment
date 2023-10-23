@@ -8,6 +8,8 @@ function RecipeLists(props) {
   const [query, setQuery] = useState("biriyani");
   const [data, setData] = useState("");
   const [resipeList, setRecipeList] = useState(false);
+  const [apiId , setApiId] = useState([])
+  const apiArray= [];
 
   const searchrecipe = (searchQuery) => {
     fetchData(searchQuery).then((response) => {
@@ -16,7 +18,7 @@ function RecipeLists(props) {
     });
   };
 
-  const handleRecipieListPage = () => {
+  const handleRecipieListPage = (index) => {
     setRecipeList(true);
 
     setTimeout(() => {
@@ -26,6 +28,8 @@ function RecipeLists(props) {
       });
       console.log("Recipe List Page");
       clearTimeout();
+      console.log(apiArray[index])
+      console.log(apiArray)
     }, 1000);
     console.log(document.body.scrollHeight);
   };
@@ -60,8 +64,9 @@ function RecipeLists(props) {
             <div key={index} className="flexItem">
               <div className="img-wrapper">
                 <img src={item.recipe.image} alt={item.recipe.label} />
+                {apiArray.push(item._links.self.href)}
               </div>
-              <p onClick={handleRecipieListPage}>{item.recipe.label}</p>
+              <p onClick={()=>handleRecipieListPage(index)}>{item.recipe.label}</p>
             </div>
           ))}
       </div>
