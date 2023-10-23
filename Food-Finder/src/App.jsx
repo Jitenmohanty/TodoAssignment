@@ -5,12 +5,17 @@ import ReccipeList from "./components/ReccipeList";
 import { useState } from "react";
 
 function App() {
-  const [loader,setLoader] = useState(true)
+  const [loader, setLoader] = useState(true);
   return (
     <>
-      <Header  setLoader={setLoader} />
-      <DefaultTab  setLoader={setLoader}/>
+      <Header setLoader={setLoader} />
+      <DefaultTab setLoader={setLoader} />
       <ReccipeList setLoader={setLoader} />
+      {loader && (
+        <div className="loader">
+          <div className="spinner"></div>
+        </div>
+      )}
     </>
   );
 }

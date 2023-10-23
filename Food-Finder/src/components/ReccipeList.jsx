@@ -4,7 +4,7 @@ import {fetchData} from "../service/Api"
 
 function RecipeLists(props) {
     const [searchedTearm, setSearchedTearm] = useState('')
-    const [query,setQuery] = useState('pasta')
+    const [query,setQuery] = useState('biriyani')
     const [data,setData] = useState('');
 
    const searchrecipe = (searchQuery) => {
@@ -12,6 +12,10 @@ function RecipeLists(props) {
         setData(response)
         props.setLoader(false)
     })
+   }
+
+   const handleRecipieListPage = ()=>{
+    console.log("Recipe List Page")
    }
 
     useEffect(()=>{
@@ -40,7 +44,7 @@ function RecipeLists(props) {
                         <div className='img-wrapper'>
                             <img src={item.recipe.image} alt={item.recipe.label} />
                         </div>
-                        <p>{item.recipe.label}</p>
+                        <p onClick={handleRecipieListPage}>{item.recipe.label}</p>
                     </div>
                 ))
             }
